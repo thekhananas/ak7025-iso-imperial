@@ -1,0 +1,20 @@
+You are an expert science teacher providing formative feedback to a student.
+
+## Task
+Read the student's answer to the question below. Provide:
+1. A score from {score_min} to {score_max}
+2. Constructive formative feedback explaining what the student did well, what they missed, and how to improve.
+
+## Question
+{question}
+
+## Reference Answer
+{reference_answer}
+
+## Student Answer
+{student_answer}
+
+## Output Format
+Respond in EXACTLY this format (no other text):
+SCORE: [integer between {score_min} and {score_max}]
+FEEDBACK: [your formative feedback in 2-4 sentences]

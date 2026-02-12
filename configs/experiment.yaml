@@ -1,0 +1,66 @@
+# ============================================================
+# Experiment Configuration — All tuneable parameters
+# ============================================================
+# Changing values here is all you need to rerun variants.
+# No code changes required.
+
+experiment:
+  name: "prompt_strategy_comparison_v1"
+  seed: 42
+
+# --- Data Sampling ---
+sampling:
+  # Which ASAP-SAS essay sets to draw from.
+  # Set 1 = Science (interdependence in ecosystems)
+  # Set 2 = Science (cells and organelles)
+  # Set 5 = Biology (genetic concepts)
+  # Set 6 = Science (electricity and magnetism)
+  # Using 2 sets gives cross-domain evidence.
+  essay_sets: [1, 2]
+  # Answers per essay set (total = n_per_set × len(essay_sets))
+  n_per_set: 15
+  # Stratified sampling across score levels
+  stratify_by_score: true
+
+# --- Generation ---
+generation:
+  model: "gpt-4o-mini-2024-07-18"
+  temperature: 0.0
+  max_tokens: 500
+  top_p: 1.0
+  seed: 42
+  # Number of independent generation runs per (strategy, answer) pair
+  n_runs: 3
+  # Rate limiting: max requests per minute (OpenAI tier 1 = 500 RPM)
+  rate_limit_rpm: 60
+  # Prompt strategies to test (must match filenames in prompts/generation/)
+  strategies:
+    - zero_shot
+    - zero_shot_cot
+    - few_shot_rubric
+    - few_shot_cot_rubric
+
+# --- Evaluation (G-Eval) ---
+evaluation:
+  model: "claude-sonnet-4-20250514"
+  temperature: 0.0
+  max_tokens: 300
+  # Number of evaluation runs per (output, dimension) pair
+  n_runs: 3
+  # Quality dimensions to evaluate (must match filenames in prompts/evaluation/)
+  dimensions:
+    - accuracy
+    - specificity
+    - actionability
+    - constructive_tone
+    - pedagogical_alignment
+  rate_limit_rpm: 50
+
+# --- Analysis ---
+analysis:
+  significance_level: 0.05
+  bootstrap_n_resamples: 1000
+  # Minimum QWK considered acceptable (Williamson et al. threshold)
+  qwk_acceptance_threshold: 0.70
+  figure_dpi: 300
+  figure_format: "png"

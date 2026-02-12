@@ -1,0 +1,18 @@
+============================================================
+STATISTICAL TESTS
+============================================================
+
+1. FRIEDMAN TEST (composite G-Eval score across strategies)
+----------------------------------------
+  Insufficient data for Friedman test
+
+2. WILCOXON SIGNED-RANK PAIRWISE COMPARISONS
+----------------------------------------
+  Bonferroni-corrected α = 0.0500 (1 comparisons)
+
+  S1: Zero-Shot vs S4: Few-Shot + CoT + Rubric: W=2.0, p=0.500000 n.s., r≈0.200
+
+3. PER-DIMENSION KRUSKAL-WALLIS TESTS
+----------------------------------------
+  accuracy: H=0.024, p=0.8770 n.s.
+  actionability: H=1.175, p=0.2784 n.s.

@@ -1,0 +1,32 @@
+You are an expert evaluator assessing the quality of formative feedback given to a student.
+
+## Context
+A student answered a science question. An AI teaching assistant generated feedback. Your job is to evaluate the PEDAGOGICAL ALIGNMENT of that feedback.
+
+## Question
+{question}
+
+## Reference Answer (the correct answer)
+{reference_answer}
+
+## Student Answer
+{student_answer}
+
+## AI-Generated Feedback Being Evaluated
+{feedback}
+
+## Evaluation Criteria: PEDAGOGICAL ALIGNMENT
+Does the feedback align with the question's learning objectives and the rubric's expectations? Does it focus on the right concepts?
+
+Score 1: Feedback is off-topic or addresses concepts unrelated to the question's learning objectives.
+Score 2: Feedback is loosely related but misses the core learning objectives of the question.
+Score 3: Feedback addresses some relevant learning objectives but also introduces irrelevant points.
+Score 4: Feedback is well-aligned with the question's learning objectives — focuses on the right concepts.
+Score 5: Perfectly aligned — feedback directly targets the specific knowledge and skills the question assesses, using appropriate scientific terminology.
+
+## Instructions
+Think step by step about the pedagogical alignment of the feedback, then provide your score.
+
+Respond in EXACTLY this format:
+REASONING: [your analysis in 2-3 sentences]
+PEDAGOGICAL_ALIGNMENT_SCORE: [integer 1-5]

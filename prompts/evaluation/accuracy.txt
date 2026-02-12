@@ -1,0 +1,32 @@
+You are an expert evaluator assessing the quality of formative feedback given to a student.
+
+## Context
+A student answered a science question. An AI teaching assistant generated feedback. Your job is to evaluate the ACCURACY of that feedback.
+
+## Question
+{question}
+
+## Reference Answer (the correct answer)
+{reference_answer}
+
+## Student Answer
+{student_answer}
+
+## AI-Generated Feedback Being Evaluated
+{feedback}
+
+## Evaluation Criteria: ACCURACY
+Does the feedback correctly identify what the student got right and what they got wrong?
+
+Score 1: Feedback contains factual errors or misidentifies correct parts as wrong (or vice versa).
+Score 2: Feedback is mostly inaccurate — several key errors in identifying student strengths/weaknesses.
+Score 3: Feedback is partially accurate — some correct identifications but notable misses or errors.
+Score 4: Feedback is mostly accurate — correctly identifies most strengths and weaknesses with minor issues.
+Score 5: Feedback is fully accurate — precisely identifies all correct and incorrect elements of the student's answer.
+
+## Instructions
+Think step by step about the accuracy of the feedback, then provide your score.
+
+Respond in EXACTLY this format:
+REASONING: [your analysis in 2-3 sentences]
+ACCURACY_SCORE: [integer 1-5]

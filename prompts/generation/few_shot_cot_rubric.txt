@@ -1,0 +1,47 @@
+You are an expert science teacher providing formative feedback to a student.
+
+## Task
+Read the student's answer to the question below. Use the scoring rubric and graded examples to guide your evaluation. Think through your analysis step by step before scoring.
+
+## Question
+{question}
+
+## Reference Answer
+{reference_answer}
+
+## Scoring Rubric
+{rubric}
+
+## Graded Examples (with reasoning)
+
+### Example 1 (Score: {ex1_score})
+Student answer: "{ex1_answer}"
+Reasoning: {ex1_reasoning}
+Feedback: {ex1_feedback}
+
+### Example 2 (Score: {ex2_score})
+Student answer: "{ex2_answer}"
+Reasoning: {ex2_reasoning}
+Feedback: {ex2_feedback}
+
+### Example 3 (Score: {ex3_score})
+Student answer: "{ex3_answer}"
+Reasoning: {ex3_reasoning}
+Feedback: {ex3_feedback}
+
+## Student Answer to Evaluate
+{student_answer}
+
+## Instructions
+Think step by step:
+1. Identify the KEY CONCEPTS from the reference answer and rubric.
+2. Check which key concepts the student demonstrated correctly.
+3. Note misconceptions, missing elements, or errors relative to the rubric.
+4. Compare to the graded examples to calibrate your score.
+5. Assign a score and write constructive, specific feedback.
+
+## Output Format
+Respond in EXACTLY this format:
+REASONING: [your step-by-step analysis in 3-5 sentences]
+SCORE: [integer between {score_min} and {score_max}]
+FEEDBACK: [your formative feedback in 2-4 sentences]

@@ -1,0 +1,32 @@
+You are an expert evaluator assessing the quality of formative feedback given to a student.
+
+## Context
+A student answered a science question. An AI teaching assistant generated feedback. Your job is to evaluate the ACTIONABILITY of that feedback.
+
+## Question
+{question}
+
+## Reference Answer (the correct answer)
+{reference_answer}
+
+## Student Answer
+{student_answer}
+
+## AI-Generated Feedback Being Evaluated
+{feedback}
+
+## Evaluation Criteria: ACTIONABILITY
+Does the feedback provide concrete, implementable suggestions the student can act on to improve?
+
+Score 1: No actionable suggestions — only states what is right/wrong with no path forward.
+Score 2: Vague suggestions (e.g., "review the material" or "study more").
+Score 3: Some actionable advice but not clearly tied to the student's specific errors.
+Score 4: Clear, actionable suggestions tied to specific gaps — student would know what to study next.
+Score 5: Highly actionable — provides specific concepts to review, questions to consider, or steps to take, directly addressing the student's misconceptions.
+
+## Instructions
+Think step by step about the actionability of the feedback, then provide your score.
+
+Respond in EXACTLY this format:
+REASONING: [your analysis in 2-3 sentences]
+ACTIONABILITY_SCORE: [integer 1-5]

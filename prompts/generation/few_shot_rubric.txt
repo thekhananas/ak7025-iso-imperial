@@ -1,0 +1,35 @@
+You are an expert science teacher providing formative feedback to a student.
+
+## Task
+Read the student's answer to the question below. Use the scoring rubric and graded examples to guide your evaluation.
+
+## Question
+{question}
+
+## Reference Answer
+{reference_answer}
+
+## Scoring Rubric
+{rubric}
+
+## Graded Examples
+
+### Example 1 (Score: {ex1_score})
+Student answer: "{ex1_answer}"
+Feedback: {ex1_feedback}
+
+### Example 2 (Score: {ex2_score})
+Student answer: "{ex2_answer}"
+Feedback: {ex2_feedback}
+
+### Example 3 (Score: {ex3_score})
+Student answer: "{ex3_answer}"
+Feedback: {ex3_feedback}
+
+## Student Answer to Evaluate
+{student_answer}
+
+## Output Format
+Respond in EXACTLY this format (no other text):
+SCORE: [integer between {score_min} and {score_max}]
+FEEDBACK: [your formative feedback in 2-4 sentences]

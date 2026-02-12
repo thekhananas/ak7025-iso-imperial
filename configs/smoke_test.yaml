@@ -1,0 +1,48 @@
+# ============================================================
+# SMOKE TEST — Minimal config to verify pipeline end-to-end
+# ============================================================
+# Uses 4 samples (1 per score level), 1 run, 2 strategies.
+# Real API cost: ~$0.50 | Dry-run cost: $0.00
+#
+# Usage:
+#   pixi run smoke                    # Real API calls (~$0.50)
+#   pixi run smoke-dry                # Fake responses, $0 cost
+#   python src/02_generate.py --config configs/smoke_test.yaml --dry-run
+
+experiment:
+  name: "smoke_test"
+  seed: 42
+
+sampling:
+  essay_sets: [1]
+  n_per_set: 4
+  stratify_by_score: true
+
+generation:
+  model: "gpt-4o-mini-2024-07-18"
+  temperature: 0.0
+  max_tokens: 500
+  top_p: 1.0
+  seed: 42
+  n_runs: 1
+  rate_limit_rpm: 60
+  strategies:
+    - zero_shot
+    - few_shot_cot_rubric
+
+evaluation:
+  model: "claude-sonnet-4-20250514"
+  temperature: 0.0
+  max_tokens: 300
+  n_runs: 1
+  dimensions:
+    - accuracy
+    - actionability
+  rate_limit_rpm: 50
+
+analysis:
+  significance_level: 0.05
+  bootstrap_n_resamples: 100
+  qwk_acceptance_threshold: 0.70
+  figure_dpi: 150
+  figure_format: "png"

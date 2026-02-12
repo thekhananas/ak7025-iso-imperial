@@ -1,0 +1,53 @@
+[project]
+name = "mvr-prompt-engineering"
+version = "0.1.0"
+description = "MVR Option 1: Comparing prompt engineering strategies for AI-generated formative feedback"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+
+[dependencies]
+python = ">=3.11,<3.13"
+pip = ">=24.0"
+
+[pypi-dependencies]
+openai = ">=1.30.0"
+anthropic = ">=0.25.0"
+pandas = ">=2.2.0"
+numpy = ">=1.26.0"
+matplotlib = ">=3.8.0"
+seaborn = ">=0.13.0"
+scikit-learn = ">=1.4.0"
+scipy = ">=1.12.0"
+pyyaml = ">=6.0"
+python-dotenv = ">=1.0.0"
+tqdm = ">=4.66.0"
+kaggle = ">=1.6.0"
+
+[tasks]
+# Individual pipeline stages
+prepare = "python src/01_prepare_data.py"
+generate = "python src/02_generate.py"
+evaluate = "python src/03_evaluate.py"
+analyse = "python src/04_analyse.py"
+
+# Full pipeline in sequence
+pipeline = { depends-on = ["prepare", "generate", "evaluate", "analyse"] }
+
+# ── Smoke test (small config, real API calls, ~$0.50) ──
+test-prepare = { cmd = "python src/01_prepare_data.py", env = { MVR_CONFIG = "configs/smoke_test.yaml" } }
+test-generate = { cmd = "python src/02_generate.py", env = { MVR_CONFIG = "configs/smoke_test.yaml" } }
+test-evaluate = { cmd = "python src/03_evaluate.py", env = { MVR_CONFIG = "configs/smoke_test.yaml" } }
+test-analyse = { cmd = "python src/04_analyse.py", env = { MVR_CONFIG = "configs/smoke_test.yaml" } }
+test = { depends-on = ["test-prepare", "test-generate", "test-evaluate", "test-analyse"] }
+
+# ── Dry run (mock API calls, $0, verify pipeline structure) ──
+dry-prepare = { cmd = "python src/01_prepare_data.py", env = { MVR_CONFIG = "configs/smoke_test.yaml", MVR_DRY_RUN = "1" } }
+dry-generate = { cmd = "python src/02_generate.py", env = { MVR_CONFIG = "configs/smoke_test.yaml", MVR_DRY_RUN = "1" } }
+dry-evaluate = { cmd = "python src/03_evaluate.py", env = { MVR_CONFIG = "configs/smoke_test.yaml", MVR_DRY_RUN = "1" } }
+dry-analyse = { cmd = "python src/04_analyse.py", env = { MVR_CONFIG = "configs/smoke_test.yaml", MVR_DRY_RUN = "1" } }
+dry-run = { depends-on = ["dry-prepare", "dry-generate", "dry-evaluate", "dry-analyse"] }
+
+# Utilities
+download-data = "kaggle competitions download -c asap-sas -p data/raw && unzip -o data/raw/asap-sas.zip -d data/raw"
+clean = "rm -rf results/* data/sampled/*"
+costs = "python -c \"import json; logs=open('results/raw/generation_log.jsonl').readlines(); total=sum(json.loads(l).get('usage',{}).get('total_tokens',0) for l in logs); print(f'Total tokens: {total:,} | Est. cost: ${total*0.15/1e6:.2f}')\""
