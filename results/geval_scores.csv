@@ -1,5 +1,5 @@
 strategy,dimension,mean,std,count
-few_shot_cot_rubric,accuracy,3.0,1.414,4
-few_shot_cot_rubric,actionability,4.0,0.816,4
-zero_shot,accuracy,2.75,0.957,4
-zero_shot,actionability,3.25,0.957,4
+few_shot_cot_rubric,accuracy,4.5,1.0,4
+few_shot_cot_rubric,actionability,3.5,0.577,4
+zero_shot,accuracy,4.5,0.577,4
+zero_shot,actionability,3.25,0.5,4
