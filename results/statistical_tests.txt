@@ -4,15 +4,25 @@ STATISTICAL TESTS
 
 1. FRIEDMAN TEST (composite G-Eval score across strategies)
 ----------------------------------------
-  Insufficient data for Friedman test
+  Chi-squared = 7.7328
+  p-value = 0.051870
+  NOT significant at α=0.05
 
 2. WILCOXON SIGNED-RANK PAIRWISE COMPARISONS
 ----------------------------------------
-  Bonferroni-corrected α = 0.0500 (1 comparisons)
+  Bonferroni-corrected α = 0.0083 (6 comparisons)
 
-  S1: Zero-Shot vs S4: Few-Shot + CoT + Rubric: W=2.0, p=0.500000 n.s., r≈0.200
+  S1: Zero-Shot vs S2: Zero-Shot + CoT: W=55.0, p=0.035341 n.s., r≈0.183
+  S1: Zero-Shot vs S3: Few-Shot + Rubric: W=116.5, p=0.745376 n.s., r≈0.388
+  S1: Zero-Shot vs S4: Few-Shot + CoT + Rubric: W=95.0, p=0.306178 n.s., r≈0.317
+  S2: Zero-Shot + CoT vs S3: Few-Shot + Rubric: W=97.5, p=0.133396 n.s., r≈0.325
+  S2: Zero-Shot + CoT vs S4: Few-Shot + CoT + Rubric: W=51.5, p=0.004873 ***, r≈0.172
+  S3: Few-Shot + Rubric vs S4: Few-Shot + CoT + Rubric: W=96.5, p=0.206764 n.s., r≈0.322
 
 3. PER-DIMENSION KRUSKAL-WALLIS TESTS
 ----------------------------------------
-  accuracy: H=0.024, p=0.8770 n.s.
-  actionability: H=1.175, p=0.2784 n.s.
+  accuracy: H=4.205, p=0.2402 n.s.
+  actionability: H=30.894, p=0.0000 *
+  constructive_tone: H=4.545, p=0.2083 n.s.
+  pedagogical_alignment: H=10.093, p=0.0178 *
+  specificity: H=34.363, p=0.0000 *

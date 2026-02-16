@@ -1,0 +1,5 @@
+strategy,QWK_mean,QWK_ci_low,QWK_ci_high
+zero_shot,0.1415,-0.1187,0.4372
+zero_shot_cot,0.0479,-0.18,0.3035
+few_shot_rubric,0.1177,-0.1404,0.418
+few_shot_cot_rubric,0.1603,-0.0845,0.4858

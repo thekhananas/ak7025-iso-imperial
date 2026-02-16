@@ -1,4 +1,8 @@
 strategy,label,n_samples,QWK,LWK,exact_agreement,adjacent_agreement,MAE,RMSE
-zero_shot,S1: Zero-Shot,4,-0.0833,0.0909,0.5,0.5,1.25,1.8028
+zero_shot,S1: Zero-Shot,24,0.1429,0.1034,0.2917,0.7083,1.0833,1.4142
+zero_shot_cot,"S2: Zero-Shot
++ CoT",24,0.05,0.0333,0.25,0.6667,1.2083,1.5411
+few_shot_rubric,"S3: Few-Shot
++ Rubric",24,0.1167,0.1,0.2917,0.7083,1.125,1.486
 few_shot_cot_rubric,"S4: Few-Shot
-+ CoT + Rubric",4,-0.125,-0.1111,0.25,0.5,1.25,1.5
++ CoT + Rubric",24,0.1618,0.1562,0.3333,0.7083,1.125,1.5411

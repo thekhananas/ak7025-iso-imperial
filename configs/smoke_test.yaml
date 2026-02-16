@@ -45,4 +45,4 @@ analysis:
   bootstrap_n_resamples: 100
   qwk_acceptance_threshold: 0.70
   figure_dpi: 150
-  figure_format: "png"
+  figure_format: "pdf"

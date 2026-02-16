@@ -63,4 +63,4 @@ analysis:
   # Minimum QWK considered acceptable (Williamson et al. threshold)
   qwk_acceptance_threshold: 0.70
   figure_dpi: 300
-  figure_format: "png"
+  figure_format: "pdf"

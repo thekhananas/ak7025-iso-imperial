@@ -274,9 +274,11 @@ def plot_qwk_bars(metrics_df: pd.DataFrame, ci_df: pd.DataFrame, fig_dir: Path, 
         )
 
     plt.tight_layout()
-    plt.savefig(fig_dir / "qwk_by_strategy.png", dpi=config["analysis"]["figure_dpi"])
+    fmt = config["analysis"].get("figure_format", "png")
+    fname = f"qwk_by_strategy.{fmt}"
+    plt.savefig(fig_dir / fname, dpi=config["analysis"]["figure_dpi"], bbox_inches="tight")
     plt.close()
-    print(f"  📊 Saved qwk_by_strategy.png")
+    print(f"  📊 Saved {fname}")
 
 
 def plot_geval_radar(eval_df: pd.DataFrame, fig_dir: Path, config: dict):
@@ -313,10 +315,11 @@ def plot_geval_radar(eval_df: pd.DataFrame, fig_dir: Path, config: dict):
     ax.legend(loc="upper right", bbox_to_anchor=(1.3, 1.0))
 
     plt.tight_layout()
-    plt.savefig(fig_dir / "geval_radar.png", dpi=config["analysis"]["figure_dpi"],
-                bbox_inches="tight")
+    fmt = config["analysis"].get("figure_format", "png")
+    fname = f"geval_radar.{fmt}"
+    plt.savefig(fig_dir / fname, dpi=config["analysis"]["figure_dpi"], bbox_inches="tight")
     plt.close()
-    print(f"  📊 Saved geval_radar.png")
+    print(f"  📊 Saved {fname}")
 
 
 def plot_geval_heatmap(eval_df: pd.DataFrame, fig_dir: Path, config: dict):
@@ -340,9 +343,11 @@ def plot_geval_heatmap(eval_df: pd.DataFrame, fig_dir: Path, config: dict):
     ax.set_xlabel("")
 
     plt.tight_layout()
-    plt.savefig(fig_dir / "geval_heatmap.png", dpi=config["analysis"]["figure_dpi"])
+    fmt = config["analysis"].get("figure_format", "png")
+    fname = f"geval_heatmap.{fmt}"
+    plt.savefig(fig_dir / fname, dpi=config["analysis"]["figure_dpi"], bbox_inches="tight")
     plt.close()
-    print(f"  📊 Saved geval_heatmap.png")
+    print(f"  📊 Saved {fname}")
 
 
 def plot_score_distribution(gen_df: pd.DataFrame, fig_dir: Path, config: dict):
@@ -377,9 +382,11 @@ def plot_score_distribution(gen_df: pd.DataFrame, fig_dir: Path, config: dict):
     axes[1].tick_params(axis="x", rotation=15)
 
     plt.tight_layout()
-    plt.savefig(fig_dir / "score_distribution.png", dpi=config["analysis"]["figure_dpi"])
+    fmt = config["analysis"].get("figure_format", "png")
+    fname = f"score_distribution.{fmt}"
+    plt.savefig(fig_dir / fname, dpi=config["analysis"]["figure_dpi"], bbox_inches="tight")
     plt.close()
-    print(f"  📊 Saved score_distribution.png")
+    print(f"  📊 Saved {fname}")
 
 
 # ---------------------------------------------------------------------------
